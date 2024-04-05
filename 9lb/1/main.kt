@@ -1,16 +1,21 @@
-class RecursiveCalculator {
-    fun doubleFactorial(n: Int): Long {
-        return if (n <= 1) {
-            1
-        } else {
-            n.toLong() * doubleFactorial(n - 2)
-        }
+class StringProcessor(private val input: String) {
+    fun countUpperCaseConsonants(): Int {
+        val upperCaseConsonants = input.filter { it.isUpperCase() && it in '\u0041'..'\u005A' && it !in "AEIOU" }
+        return upperCaseConsonants.length
+    }
+    
+    fun extractUpperCaseConsonants(): String {
+        return input.filter { it.isUpperCase() && it in '\u0041'..'\u005A' && it !in "AEIOU" }
     }
 }
 
 fun main() {
-    val calculator = RecursiveCalculator()
-    val n = 7
-    val result = calculator.doubleFactorial(n)
-    println("Double factorial of $n is $result")
+    val inputString = "qwewqewq WQQE qweW qweqwe"
+    val processor = StringProcessor(inputString)
+
+    val count = processor.countUpperCaseConsonants()
+    val upperCaseConsonants = processor.extractUpperCaseConsonants()
+
+    println("Количество заглавных согласных: $count")
+    println("Вспомогательная строка из заглавных согласных букв: $upperCaseConsonants")
 }

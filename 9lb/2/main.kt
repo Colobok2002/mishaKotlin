@@ -1,16 +1,13 @@
-class RecursiveCalculator {
-    fun doubleFactorial(n: Int): Long {
-        return if (n <= 1) {
-            1
-        } else {
-            n.toLong() * doubleFactorial(n - 2)
-        }
-    }
-}
-
 fun main() {
-    val calculator = RecursiveCalculator()
-    val n = 7
-    val result = calculator.doubleFactorial(n)
-    println("Double factorial of $n is $result")
+    val inputString = "hello world"
+    val halfLength = inputString.length / 2
+
+    val firstHalf = inputString.substring(0, halfLength)
+    val secondHalf = inputString.substring(halfLength)
+
+    val rotatedFirstHalf = firstHalf.substring(1) + firstHalf[0]
+    val resultString = rotatedFirstHalf + secondHalf
+
+    println("Исходная строка: $inputString")
+    println("Результирующая строка после циклической перестановки: $resultString")
 }
